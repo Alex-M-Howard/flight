@@ -19,3 +19,4 @@ Werkzeug==2.2.3
 WTForms==3.0.1
 gunicorn
 psycopg2-binary
+requests
