@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Results{% endblock %}
+
+{% block content %}
+  <h1>Results</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% for result in results %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ result.cityFrom }} to {{ result.cityTo }}</h5>
+        <p class="card-text">Nights in destination: {{ result.nightsInDest }}</p>
+        <p class="card-text">Cost: {{ result.price }} {{ result.currency }}</p>
+        <p class="card-text">Dates: {{ result.route.0.local_departure }} to {{ result.route.1.local_arrival }}</p>
+        <a href="{{ result.deep_link }}" class="card-link">Book Now</a>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
