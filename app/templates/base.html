@@ -9,10 +9,92 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-   
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form action="{{ url_for('main.search') }}" method="post" class="form-inline ml-auto">
+            {{ form.hidden_tag() }}
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.from_city.label(class_="sr-only") }}
+                  {{ form.from_city(class_="form-control", placeholder="From City") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.to_city.label(class_="sr-only") }}
+                  {{ form.to_city(class_="form-control", placeholder="To City") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.date_from.label(class_="sr-only") }}
+                  {{ form.date_from(class_="form-control", placeholder="Date From") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.date_to.label(class_="sr-only") }}
+                  {{ form.date_to(class_="form-control", placeholder="Date To") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.nights_in_dst_from.label(class_="sr-only") }}
+                  {{ form.nights_in_dst_from(class_="form-control", placeholder="Nights In Destination From") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.nights_in_dst_to.label(class_="sr-only") }}
+                  {{ form.nights_in_dst_to(class_="form-control", placeholder="Nights In Destination To") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.flight_type.label(class_="sr-only") }}
+                  {{ form.flight_type(class_="form-control", placeholder="Flight Type") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.curr.label(class_="sr-only") }}
+                  {{ form.curr(class_="form-control", placeholder="Currency") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.price_from.label(class_="sr-only") }}
+                  {{ form.price_from(class_="form-control", placeholder="Price From") }}
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  {{ form.price_to.label(class_="sr-only") }}
+                  {{ form.price_to(class_="form-control", placeholder="Price To") }}
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
 
     <div class="container">
-      {% block content %}{% endblock %}
+      <div class="row">
+        <div class="col-lg-12">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
